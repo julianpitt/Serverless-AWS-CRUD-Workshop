@@ -1,15 +1,22 @@
 # Serverless AWS CRUD Workshop
 ## First Function
 
-In this lab, we'll be creating our first lambda function using the serverless framework and setting up our project.
+In this lab, we'll be creating our first lambda function using the Serverless framework and setting up our project.
 
-The serverless framework abstracts all the hassle of setting up, deploying, and maintaining out functions and their corresponding configuration and events
+The Serverless framework abstracts all the hassle of setting up, deploying, and maintaining out functions and their corresponding configuration and events.
+
 ### Requirements:
 - AWS CLI
 - AWS account set up on CLI
 - Postman
 - Node.js v6+ installed
 - Serverless framework installed globally
+  
+### Outcomes:
+- Create a Lambda function using the Serverless Framework
+- Locally invoke a function
+- Deploy a function to AWS
+- Test a remote function
   
 ### Overview:
 - Create a lambda function
@@ -20,7 +27,7 @@ The serverless framework abstracts all the hassle of setting up, deploying, and 
 - Testing the API
   
 ### Steps:
-1. Create a new project using the serverless framework create command
+1. Create a new project using the Serverless framework create command
 ```
 sls create --template aws-nodejs --name [your service name]
 ```
@@ -37,15 +44,13 @@ functions:
 5. Place the following code in that function
 ```javascript
 
-module.exports.handler = (event, context, callback) => {
-  const response = {
+module.exports.handler = (event, context) => {
+  return {
     statusCode: 200,
     body: JSON.stringify({
       message: 'Hello world'
     })
   };
-
-  callback(null, response);
 };
 
 ```
