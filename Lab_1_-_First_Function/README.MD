@@ -9,7 +9,7 @@ The Serverless framework abstracts all the hassle of setting up, deploying, and 
 - AWS CLI
 - AWS account set up on CLI
 - Postman
-- Node.js v6+ installed
+- Node.js v8.10+ installed
 - Serverless framework installed globally
   
 ### Outcomes:
@@ -32,7 +32,7 @@ The Serverless framework abstracts all the hassle of setting up, deploying, and 
 sls create --template aws-nodejs --name [your service name]
 ```
 
-2. Open the `serverless.yaml` file and add the following to the bottom of the configuration file to create a new hello Function:
+2. Open the `serverless.yml` file and add the following to the bottom of the configuration file to create a new hello Function:
 ```yaml
 functions:
   hello:

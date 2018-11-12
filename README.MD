@@ -8,7 +8,7 @@ There are 3 labs in total, each covering a different concern of the overall appl
 
 1. [Lab 1 - First Function](./Lab_1_-_First_Function)
 2. [Lab 2 - Add the DB](./Lab_1_-_Add_the_DB)
-3. [Lab 3 - Make it look GUid](./Lab_3_-_Make_it_look_GUid)
+3. [Lab 3 - Make it look gUId](./Lab_3_-_Make_it_look_gUId)
 
 ### Prerequisites:
 - A credit card and phone number (for account creation)

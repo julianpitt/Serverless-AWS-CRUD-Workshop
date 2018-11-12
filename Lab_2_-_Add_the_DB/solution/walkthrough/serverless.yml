@@ -1,0 +1,39 @@
+service: serverless-crud
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  versionFunctions: false
+
+functions:
+  hello:
+    handler: src/hello-handler.handler
+    events:
+      - http:
+          path: hello
+          method: get
+  createBook:
+    handler: src/book/createBook-handler.handler
+    events:
+      - http:
+          path: book
+          method: post
+  getBook:
+    handler: src/book/getBook-handler.handler
+    events:
+      - http:
+          path: book
+          method: get
+  updateBook:
+    handler: src/book/updateBook-handler.handler
+    events:
+      - http:
+          path: book
+          method: put
+  deleteBook:
+    handler: src/book/deleteBook-handler.handler
+    events:
+      - http:
+          path: book
+          method: delete
+
