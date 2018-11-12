@@ -99,6 +99,7 @@ sls deploy -v
    - getBook
    - updateBook
    - deleteBook
+  
 Each function should have the same API event path of `book` but the methods should be:
    - POST
    - GET
