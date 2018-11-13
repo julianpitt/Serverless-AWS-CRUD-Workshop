@@ -8,18 +8,20 @@ const API_ENDPOINT = 'https://YOUR_API_ENDPOINT_HERE/dev'; //Paste your API Gate
 class App extends Component {
 
   state = {
-    books: [],
-    title: '',
-    author: '',
-    year: '',
-    bookId: null
+    books: [], // Used to store the list of book objects
+    title: '', // Used to store the variable in the title text input
+    author: '', // Used to store the variable in the author text input
+    year: '', // Used to store the variable in the year number input
+    bookId: null // Used to store the id of the book id you're currently editing
   }
 
+  // Runs when this component is mounted onto the page
   componentDidMount() {
     // Make API call to get all books using axios and save to state
     this.getAllBooks();
   }
 
+  // Gets all books from the API endpoint
   getAllBooks = () => {
     axios.get(`${API_ENDPOINT}/book`)
       .then(res => {
@@ -29,38 +31,7 @@ class App extends Component {
       });
   }
 
-  resetForm = () => {
-
-    this.setState({
-      title: '',
-      author: '',
-      year: '',
-      bookId: null
-    });
-
-  }
-
-  onAuthorChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      author: event.target.value
-    });
-  }
-
-  onTitleChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      title: event.target.value
-    });
-  }
-
-  onYearChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      year: event.target.value
-    });
-  }
-
+  // Creates a new book from the state store using the API endpoint
   onCreateBook = () => {
     const book = {
       author: this.state.author,
@@ -78,32 +49,45 @@ class App extends Component {
 
   }
 
+  // TODO: Updates an existing book using variables in the state store
   onUpdateBook = () => {
-    const book = {
-      author: this.state.author,
-      title: this.state.title,
-      year: this.state.year,
-      bookId: this.state.bookId
-    };
-
-    axios.put(`${API_ENDPOINT}/book`, {
-      book
-    })
-      .then(res => {
-        this.resetForm();
-        this.getAllBooks();
-      });
+    alert('not implemented yet');
+    // Implement the update function using axios's put method
   }
 
+  // TODO: Updates an existing book using variables in the state store
   onDelete = (bookId) => {
-    axios.delete(`${API_ENDPOINT}/book`, {
+    alert('not implemented yet');
+    /*
+    Implement the delete function using axios's delete method, the second parameter should be
+    {
       data: {
         bookId: bookId
       }
-    })
-      .then(res => {
-        this.getAllBooks();
-      });
+    }
+    */
+  }
+
+  // TODO 
+  resetForm = () => {
+    //Clear the state store of all variables
+  }
+
+  onTitleChange = (event) => {
+    event.preventDefault();
+    this.setState({
+      title: event.target.value
+    });
+  }
+
+  // TODO 
+  onAuthorChange = (event) => {
+    //Implement a state update on text change for the state parameter "author"
+  }
+
+  // TODO 
+  onYearChange = (event) => {
+    //Implement a state update on text change for the state parameter "year"
   }
 
   onCancelUpdate = () => {
@@ -125,8 +109,8 @@ class App extends Component {
         <section id="main">
           <form style={{ width: '960px', margin: 'auto' }}>
             Title: <input type="text" onChange={this.onTitleChange} value={this.state.title} />&nbsp;
-            Author: <input type="text" onChange={this.onAuthorChange} value={this.state.author} />&nbsp;
-            Year: <input type="number" onChange={this.onYearChange} value={this.state.year} />&nbsp;
+            Author: <input type="text" />&nbsp;
+            Year: <input type="number" />&nbsp;
 
             {this.state.bookId ?
               (

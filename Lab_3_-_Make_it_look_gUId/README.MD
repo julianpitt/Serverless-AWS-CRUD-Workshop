@@ -17,24 +17,27 @@ In this lab,
 ### Steps:
 1. In your root directory. Create a new directory `backend`
 2. Move all our existing work into the `backend` directory
-3. Copy the frontend directory in this lab to your project directory. This project is the base create-react-app project with a few light tweaks. To see how I created this project See Appendix
+3. Use the frontend directory as a starting point for the frontend. This project is the base create-react-app project with a few light tweaks. To see how I created this project See Appendix
 
-4. Now change into the new directory and install all the dependencies with
+4. Now change into the new frontend directory and install all the dependencies with
 ```
 cd frontend
 npm install
 ```
-5. In the `serverless.yml` file add
+5. In the `backend/serverless.yml` file add
 ```
  cors: true
 ```
-to every HTTP method
-6. In each function handler in the backend, add the following to the response object to allow CORS
+to every HTTP method event
+6. In each function handlers in the backend/handlers, add the following to the response object to allow CORS
 ```JS
 headers: {
     'Access-Control-Allow-Origin': '*'
 }
 ```
+7. Redeploy the backend using `sls deploy -v`
+8. Change into the frontend directory again and start the frontend with `npm start`
+9. Open frontend/src/App.js and follow the instructions
 
 ### References
 [AWS Amplify](https://aws-amplify.github.io/)
