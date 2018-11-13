@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "02180738-77e3-42d8-a58f-fa114a9300fe",
+		"name": "AWS Serverless CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/hello",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single (GET)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/book?bookId",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"book"
+					],
+					"query": [
+						{
+							"key": "bookId",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"book\": {\n            \"year\": 2018,\n            \"bookId\": \"\",\n            \"title\": \"Harry Potter and the seven dwarfs\",\n            \"author\": \"Me\"\n        }\n}"
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/book",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"book\": {\n\t\t\"title\": \"Harry Potter and the Prisoner of Azkaban\",\n\t\t\"author\": \"J. K. Rowling\",\n\t\t\"year\": 1999\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/book?",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"book"
+					],
+					"query": [
+						{
+							"key": "ds",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bookId\":\"\"\n}"
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/book",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All (GET)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/book",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
