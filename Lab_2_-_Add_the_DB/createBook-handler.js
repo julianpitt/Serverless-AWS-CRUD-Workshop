@@ -12,17 +12,16 @@ module.exports.handler = async (event, context) => {
       })
     };
   }
-  const { bookId, title, author, year } = bookObj;
 
-  const result = await book.update(bookId, title, author, year);
+  const { title, author, year } = bookObj;
+
+  const result = await book.create(title, author, year);
 
   return {
     statusCode: result ? 201 : 500,
     body: JSON.stringify({
-      message: 'Update successful'
-    }),
-    headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
+      message: 'Create successful'
+    })
   };
+
 };

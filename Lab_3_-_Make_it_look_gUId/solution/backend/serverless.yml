@@ -30,30 +30,35 @@ functions:
       - http:
           path: hello
           method: get
+          cors: true
   createBook:
     handler: src/book/createBook-handler.handler
     events:
       - http:
           path: book
           method: post
+          cors: true
   getBook:
     handler: src/book/getBook-handler.handler
     events:
       - http:
           path: book
           method: get
+          cors: true
   updateBook:
     handler: src/book/updateBook-handler.handler
     events:
       - http:
           path: book
           method: put
+          cors: true
   deleteBook:
     handler: src/book/deleteBook-handler.handler
     events:
       - http:
           path: book
           method: delete
+          cors: true
 
 resources:
   Resources:

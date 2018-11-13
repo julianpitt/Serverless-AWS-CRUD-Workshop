@@ -52,7 +52,9 @@ BooksTable:
 2. Deploy the new DynamoDB table with `sls deploy -v`
 3. Now that we've created a new table we need to allow our Lambdas to communicate with the table.
    Instead of hard coding the table name we're going to use Environment variables to pass the table name
-   To the lambda functions
+   To the lambda functions.
+   We also need to define the IAM role that our lambda functions will assume. Since our lambda function wants to use DynamoDB
+   we need to provide the DynamoDB table ARN and the actions that our lambda functions can perform on that table
   In the providers section add the following
 ```yaml
 provider:
@@ -60,6 +62,22 @@ provider:
   runtime: nodejs8.10
   environment:
     BOOK_TABLE_NAME: ${self:service}-${self:provider.stage}-books
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::Join:
+          - ':'
+          -
+            - 'arn:aws:dynamodb:${self:provider.region}'
+            - Ref: 'AWS::AccountId'
+            - 'table/${self:service}-${self:provider.stage}-books*'
 ```
 4. Now that all our lambda functions have this environment variable
    We need to get it
@@ -73,7 +91,7 @@ provider:
 6. Now we should create a library that handles all our dynamo actions for us so create a new directory in `src` called `lib`
 7. Copy over the `book.js` and `dynamodb.js` files into the lib directory
 8. Link up the handlers to the appropriate lib/book method
-9. Fill in the missing TODO's in book.js
+9.  Fill in the missing TODO's in book.js
 10. Test our all your functions
 
 ### References

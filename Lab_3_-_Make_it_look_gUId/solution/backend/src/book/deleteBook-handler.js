@@ -19,6 +19,9 @@ module.exports.handler = async (event, context) => {
     statusCode: result ? 200 : 500,
     body: JSON.stringify({
       message: `Deleted book ${bookId}`
-    })
+    }),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   };
 };

@@ -21,7 +21,10 @@ module.exports.handler = async (event, context) => {
     statusCode: result ? 201 : 500,
     body: JSON.stringify({
       message: 'Create successful'
-    })
+    }),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   };
 
 };
