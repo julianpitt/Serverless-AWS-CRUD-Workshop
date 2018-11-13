@@ -4,6 +4,24 @@ provider:
   name: aws
   runtime: nodejs8.10
   versionFunctions: false
+  environment:
+    BOOK_TABLE_NAME: ${self:service}-${self:provider.stage}-books
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::Join:
+          - ':'
+          -
+            - 'arn:aws:dynamodb:${self:provider.region}'
+            - Ref: 'AWS::AccountId'
+            - 'table/${self:service}-${self:provider.stage}-books*'
 
 functions:
   hello:
@@ -37,3 +55,18 @@ functions:
           path: book
           method: delete
 
+resources:
+  Resources:
+    BooksTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-${self:provider.stage}-books
+        AttributeDefinitions:
+          - AttributeName: bookId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: bookId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

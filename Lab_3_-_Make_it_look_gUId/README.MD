@@ -4,7 +4,8 @@
 In this lab, 
 
 ### Requirements:
-- 
+- Requirements in Lab 2
+- Completion of Lab 2
 
 ### Outcomes:
 - 
@@ -18,10 +19,21 @@ In this lab,
 2. Move all our existing work into the `backend` directory
 3. Copy the frontend directory in this lab to your project directory. This project is the base create-react-app project with a few light tweaks. To see how I created this project See Appendix
 
-4. Now change into the new directory and install all the dependencies
+4. Now change into the new directory and install all the dependencies with
 ```
 cd frontend
 npm install
+```
+5. In the `serverless.yml` file add
+```
+ cors: true
+```
+to every HTTP method
+6. In each function handler in the backend, add the following to the response object to allow CORS
+```JS
+headers: {
+    'Access-Control-Allow-Origin': '*'
+}
 ```
 
 ### References

@@ -14,4 +14,4 @@ There are 3 labs in total, each covering a different concern of the overall appl
 - A credit card and phone number (for account creation)
 - [An AWS account](https://docs.aws.amazon.com/lambda/latest/dg/setup.html)
 - [AWS CLI Installed & Configured](https://docs.aws.amazon.com/lambda/latest/dg/setup-awscli.html)
-- [Node.Js v8+ installed](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)
+- [Node.Js v8.10 installed](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)

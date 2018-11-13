@@ -4,11 +4,7 @@
 In this lab, we'll be adding a DynamoDB database and write the code in our functions to interact with the database.
 
 ### Requirements:
-- AWS CLI
-- AWS account set up on CLI
-- Postman
-- Node.js v8.10 installed
-- Serverless framework installed globally
+- Requirements in lab 1
 - Completion of lab 1
 
 
@@ -41,16 +37,16 @@ Paste the following in your Resources section:
 BooksTable:
   Type: AWS::DynamoDB::Table
   Properties:
-  TableName: ${self:service}-${self:provider.stage}-books
-  AttributeDefinitions:
-    - AttributeName: bookId
-      AttributeType: S
-  KeySchema:
-    - AttributeName: bookId
-      KeyType: HASH
-  ProvisionedThroughput:
-    ReadCapacityUnits: 1
-    WriteCapacityUnits: 1
+    TableName: ${self:service}-${self:provider.stage}-books
+    AttributeDefinitions:
+      - AttributeName: bookId
+        AttributeType: S
+    KeySchema:
+      - AttributeName: bookId
+        KeyType: HASH
+    ProvisionedThroughput:
+      ReadCapacityUnits: 1
+      WriteCapacityUnits: 1
 ```
 
 2. Deploy the new DynamoDB table with `sls deploy -v`
@@ -73,10 +69,13 @@ provider:
 ```
 5. Now we need to pull in the aws sdk to allow us to communicate with AWS resources in our code
    Go to the root of your directory and run `npm init -y` to create a new package.json file
-   Then run `npm install aws-sdk`
+   Then run `npm -s install aws-sdk`
 6. Now we should create a library that handles all our dynamo actions for us so create a new directory in `src` called `lib`
 7. Copy over the book.js file into the lib directory
 8. Link up the handlers to the appropriate lib/book method
+9. Fill in the missing TODO's in book.js
+10. Test our all your functions
 
 ### References
 [AWS Dynamo DocumentClient API](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html)
+[Serverless Framework Creating resources](https://serverless.com/framework/docs/providers/aws/guide/resources/)

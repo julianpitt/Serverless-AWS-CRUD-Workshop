@@ -3,6 +3,7 @@ service: serverless-crud
 provider:
   name: aws
   runtime: nodejs8.10
+  versionFunctions: false
 
 functions:
   hello:
