@@ -1,29 +1,36 @@
 // Require the AWS SDK
 const AWS = require('aws-sdk');
 const uuid = require('uuid/v4');
+const { queryExpression, updateExpression } = require('./dynamodb');
 // Instantiate a new document client to talk to DynamoDB
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
 const tableName = process.env.BOOK_TABLE_NAME;
 
-module.exports.create = (book) => {
+module.exports.create = (title, author, year) => {
+
+    const book = {
+        title,
+        author,
+        year,
+        bookId: uuid()
+    };
+
     let params = {
         TableName: tableName,
-        Item: {
-            ...book,
-            bookId: uuid()
-        }
+        Item: book
     };
 
     return documentClient.put(params).promise();
 };
 
-module.exports.update = (book) => {
+module.exports.update = (bookId, title, author, year) => {
     let params = {
         TableName: tableName,
         Key: {
-            bookId: `${book.id}`
-        }
+            bookId: `${bookId}`
+        },
+        ...updateExpression({ title, author, year })
     };
 
     return documentClient.update(params).promise();

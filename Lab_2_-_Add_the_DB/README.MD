@@ -71,7 +71,7 @@ provider:
    Go to the root of your directory and run `npm init -y` to create a new package.json file
    Then run `npm -s install aws-sdk`
 6. Now we should create a library that handles all our dynamo actions for us so create a new directory in `src` called `lib`
-7. Copy over the book.js file into the lib directory
+7. Copy over the `book.js` and `dynamodb.js` files into the lib directory
 8. Link up the handlers to the appropriate lib/book method
 9. Fill in the missing TODO's in book.js
 10. Test our all your functions

@@ -2,21 +2,29 @@
 const AWS = require('aws-sdk');
 // Instantiate a new document client to talk to DynamoDB
 const documentClient = new AWS.DynamoDB.DocumentClient();
+const { queryExpression, updateExpression } = require('./dynamodb');
 
 const tableName = ;// TODO: Insert table name from environment variable;
 
-module.exports.create = (book) => {
+// This method is done for you
+module.exports.create = (title, author, year) => {
+
+    const book = {
+        title,
+        author,
+        year,
+        bookId: uuid()
+    };
 
     let params = {
         TableName: tableName,
         Item: book
     };
 
-    // Create a book record in DynamDB using put
     return documentClient.put(params).promise();
 };
 
-module.exports.update = (book) => {
+module.exports.update = (bookId, title, author, year) => {
     // TODO: Update an existing record in DynamoDB using the update method
 };
 module.exports.getAll = () => {
