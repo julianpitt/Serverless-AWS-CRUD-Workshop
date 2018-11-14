@@ -3,6 +3,7 @@ const AWS = require('aws-sdk');
 // Instantiate a new document client to talk to DynamoDB
 const documentClient = new AWS.DynamoDB.DocumentClient();
 const { queryExpression, updateExpression } = require('./dynamodb');
+const uuid = require('uuid/v4');
 
 const tableName = ;// TODO: Insert table name from environment variable;
 
