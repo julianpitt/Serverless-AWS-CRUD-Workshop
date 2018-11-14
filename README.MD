@@ -18,4 +18,4 @@ There are 3 labs in total, each covering a different concern of the overall appl
 - [Node.Js v8.10 installed](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)
 
 #### Additional
-[Postman](https://www.getpostman.com/apps)
+- [Postman](https://www.getpostman.com/apps)

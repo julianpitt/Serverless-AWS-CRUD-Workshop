@@ -44,7 +44,7 @@ functions:
 5. Place the following code in that function
 ```javascript
 
-module.exports.handler = (event, context) => {
+module.exports.handler = async (event, context) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
