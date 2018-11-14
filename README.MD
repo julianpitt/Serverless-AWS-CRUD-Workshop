@@ -11,7 +11,11 @@ There are 3 labs in total, each covering a different concern of the overall appl
 3. [Lab 3 - Make it look gUId](./Lab_3_-_Make_it_look_gUId)
 
 ### Prerequisites:
+#### Required
 - A credit card and phone number (for account creation)
 - [An AWS account](https://docs.aws.amazon.com/lambda/latest/dg/setup.html)
 - [AWS CLI Installed & Configured](https://docs.aws.amazon.com/lambda/latest/dg/setup-awscli.html)
 - [Node.Js v8.10 installed](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)
+
+#### Additional
+[Postman](https://www.getpostman.com/apps)
