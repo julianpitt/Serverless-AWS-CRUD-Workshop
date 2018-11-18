@@ -33,6 +33,7 @@ Overview of the steps are as follows
 - Testing the API
   
 ### Steps: Create a lambda function
+
 1. Go to the root folder, e.g. Serverless-AWS-CRUD-Workshop/ and create a new project using the Serverless framework create command where [your service name] is something you call to your service e.g. myTestService. Make sure you do not use speciala characters like underscore "_".
 ```
 sls create --template aws-nodejs --name [your service name]
@@ -56,6 +57,8 @@ functions:
     handler: src/hello-handler.handler
 ```
 This creates a new hello `Function` with handler method defined in `hello-handler.js` which we will do next
+
+### Locally invoking a function
 
 3. Create a new directory called `Serverless-AWS-CRUD-Workshop/src`
 4. Create a new file called `Serverless-AWS-CRUD-Workshop/src/hello-handler.js`
@@ -88,15 +91,20 @@ You shoud revieve
 ```
 At this point you can delete `Serverless-AWS-CRUD-Workshop/handler.js` file since we are no longer using it.
 
+### Deploying a function
+
 7. Once you\'ve confirmed the function works as expected, we can deploy our function to our cloud account with 
 ```bash
 sls deploy -v
 ```
+### Cloud invoking a function
 
 8. Test that the function works in the cloud by running the invoke command again, but this time, without the local command
 ```bash
 sls invoke --function hello
 ```
+
+### Adding an API to the function
 
 9. If you're able to get a response back, congratulations! You've deployed your first lambda function. You can see where your lmbad function bgy loging into AWS console and your lambda functions under Sydney region.
 We now need to put an API in front of it if we want to call it from a website frontend.
@@ -120,7 +128,8 @@ sls deploy -v
 
 11. After the deployment completes. You should see an api endpoint under `endpoints`. Click on this link to open it in the browser. You can see your deployed endpoint at AWS console under `API gateway` under dev-myTestService and he you can find the API url under Stages->dev called Invoke URL
 
-### Your task
+## Your task
+
 1. Create a new directory under the src directory called `book`
 2. Create four new functions in the serverless yaml file:
    - createBook
@@ -143,7 +152,7 @@ You can copy Lab_1_-_First_Function/solution/Task folder contents to root folder
 sls deploy
 ```
 
-## Test your work
+### Testing the API
 
 After you have deployed the book endpoints you can test your work using Postman. Import the `AWS Serverless CRUD.postman_collection.json` into postman. 
 - create a new environment called "meetup-book"
