@@ -128,7 +128,7 @@ functions:
 sls deploy -v
 ```
 
-11. After the deployment completes. You should see an api endpoint under `endpoints`. Click on this link to open it in the browser. You can see your deployed endpoint at AWS console under `API gateway` under dev-myTestService and he you can find the API url under Stages->dev called Invoke URL
+11. After the deployment completes you should see an api endpoint under `endpoints`. Click on this link to open it in the browser. You can see your deployed endpoint at AWS console under `API gateway` under dev-myTestService. You can find the API url under Stages->dev called Invoke URL
 
 ## Your task
 
