@@ -34,23 +34,25 @@ Overview of the steps are as follows
   
 ### Steps: Create a lambda function
 
-1. Go to the root folder, e.g. Serverless-AWS-CRUD-Workshop/ and create a new project using the Serverless framework create command where [your service name] is something you call to your service e.g. myTestService. Make sure you do not use speciala characters like underscore "_".
+1. Go to the root folder, e.g. Serverless-AWS-CRUD-Workshop/ and create a new project using the Serverless framework create command where [your service name] is something you call to your service e.g. myTestService. Make sure you do not use special characters like underscore "_".
 ```
 sls create --template aws-nodejs --name [your service name]
 ```
 
-2. Open the `Serverless-AWS-CRUD-Workshop/serverless.yml` set up the AWS environment by replacing 
+2. Open the Serverless-AWS-CRUD-Workshop/serverless.yml file. This file contains all the configuration and resources for your serverless project. To tell the serverless framework to use AWS, replace everything in the document with the configuration as follows 
 
 ```yaml
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   stage: dev
   region: ap-southeast-2
   timeout: 30
   versionFunctions: false
 ```
-This will tell the serverless that you want your service to be deployed to Syndey region (you can choose others off course). Now find and replace the following
+The configuration above will tell the serverless framework that you want to deploy your service in the Sydney region.
+Next, we're going to specify our functions to deploy.
+Paste the configuration below under the previous configuration.
 ```yaml
 functions:
   hello:
@@ -106,7 +108,7 @@ sls invoke --function hello
 
 ### Adding an API to the function
 
-9. If you're able to get a response back, congratulations! You've deployed your first lambda function. You can see where your lmbad function bgy loging into AWS console and your lambda functions under Sydney region.
+9. If you're able to get a response back, congratulations! You've deployed your first lambda function. You can see where your lambda function by logging into AWS console and your lambda functions in the Sydney region.
 We now need to put an API in front of it if we want to call it from a website frontend.
 Add an API and API endpoint to your project by adding the code under `### Add everything below` to your `serverless.yml` file, under the existing hello handler.
 ```yaml
@@ -156,8 +158,8 @@ sls deploy
 
 After you have deployed the book endpoints you can test your work using Postman. Import the `AWS Serverless CRUD.postman_collection.json` into postman. 
 - create a new environment called "meetup-book"
-- in the invironment define variable "API_ENDPOINT" and asign it to your API URL eg https://XXXXXX.execute-api.ap-southeast-2.amazonaws.com/dev
-- Now you can chose any of the endpoint under "AWS Serverless CRUD" collection and see if it works!
+- in the environment, define a new variable called "API_ENDPOINT" and assign it to your API URL eg https://XXXXXX.execute-api.ap-southeast-2.amazonaws.com/dev
+- Now you can choose any of the function endpoints under "AWS Serverless CRUD" collection and see if it works!
 
 ### References
 1. [Postman](https://www.getpostman.com/apps)
